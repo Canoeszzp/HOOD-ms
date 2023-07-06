@@ -9,21 +9,15 @@ Zhuo Huang<sup>1</sup>, Xiaobo Xia<sup>1</sup>, Li Shen<sup>2</sup>, Bo Han<sup>
 ## Abstract
 Machine learning models are vulnerable to Out-Of-Distribution (OOD) examples, and such a problem has drawn much attention. However, current methods lack a full understanding of different types of OOD data: there are benign OOD data that can be properly adapted to enhance the learning performance, while other malign OOD data would severely degenerate the classification result. To Harness OOD data, this paper proposes a HOOD method that can leverage the content and style from each image instance to identify benign and malign OOD data. Particularly, we design a variational inference framework to causally disentangle content and style features by constructing a structural causal model. Subsequently, we augment the content and style through an intervention process to produce malign and benign OOD data, respectively. The benign OOD data contain novel styles but hold our interested contents, and they can be leveraged to help train a style-invariant model. In contrast, the malign OOD data inherit unknown contents but carry familiar styles, by detecting them can improve model robustness against deceiving anomalies. Thanks to the proposed novel disentanglement and data augmentation techniques, HOOD can effectively deal with OOD examples in unknown and open environments, whose effectiveness is empirically validated in three typical OOD applications including OOD detection, open-set semi-supervised learning, and open-set domain adaptation.
 
-This is an PyTorch implementation of HOOD.
-This implementation is based on [Pytorch-FixMatch](https://github.com/kekmodel/FixMatch-pytorch) and [OpenMatch](https://github.com/VisionLearningGroup/OP_Match).
-
+This is an MindSpore implementation of HOOD.
 
 ## Requirements
 - python 3.6+
-- torch 1.4
-- torchvision 0.5
-- tensorboard
+- mindspore 2.0.0
 - numpy
 - tqdm
 - sklearn
 - apex (optional)
-
-See [Pytorch-FixMatch](https://github.com/kekmodel/FixMatch-pytorch) for the details.
 
 ## Usage
 
@@ -81,20 +75,5 @@ sh run_eval_cifar10.sh trained_model.pth
 ```
 
 
-### Acknowledgement
-This repository depends a lot on [Pytorch-FixMatch](https://github.com/kekmodel/FixMatch-pytorch) for FixMatch implementation, and [CSI](https://github.com/alinlab/CSI) for anomaly detection evaluation, and [OpenMatch](https://github.com/VisionLearningGroup/OP_Match) for Open Classifier implementation. 
- Appreciate their contributions.
 
-### Reference
-If you find this code helpful, please consider citing our paper, thanks.
-
-```
-@inproceedings{huang2023harnessing,
-  title={Harnessing Out-Of-Distribution Examples via Augmenting Content and Style},
-  author={Zhuo Huang and Xiaobo Xia and Li Shen and Bo Han and Mingming Gong and Chen Gong and Tongliang Liu},
-  booktitle={The Eleventh International Conference on Learning Representations},
-  year={2023},
-  url={https://openreview.net/forum?id=boNyg20-JDm}
-}
-```
 
